@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<title>CadastroProduto</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-light">
+		<div class="container-fluid">
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="#">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/produto/create">/CreateProduto</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/endereco/create">/CreateEndereço</a></li>
+					<li class="nav-item"><a class="nav-link" 
+						href="/pedido/create">/CreatePedido</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/cliente/create">/CreateCliente</a></li>
+					<li class="nav-item"><a class="nav-link" href="/produto/all">/ListProduto</a></li>
+					<li class="nav-item"><a class="nav-link" href="/endereco/all">/ListEndereco</a></li>
+					<li class="nav-item"><a class="nav-link" href="/pedido/all">/ListPedido</a></li>
+					<li class="nav-item"><a class="nav-link" href="/cliente/all">/ListCliente</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<h1>Cadastrar Pedido</h1>
+	<form method="POST" action="/pedido/create">
+		<div class="mb-3">
+		
+			<label class="form-label">Produto</label> 
+				<select class="form-select" name="produto"> <!-- name= NOME DA CLASSE -->
+				<option data-th-each="produto : ${produtos}"
+					data-th-text="${produto.nome}" 
+					th:value="${produto.id}"></option></select>
+					
+			<label class="form-label">Endereço</label> 
+				<select class="form-select" name="endereco"> <!-- name= NOME DA CLASSE -->
+				<option data-th-each="endereco : ${enderecos}"
+					data-th-text="${endereco.rua + ', '+ endereco.numero + ', '+ endereco.cidade + ', '+ endereco.estado}" 
+					th:value="${endereco.id}"></option></select>
+					
+			<label class="form-label">Cliente</label> 
+				<select class="form-select" name="cliente"> <!-- name= NOME DA CLASSE -->
+				<option data-th-each="cliente : ${clientes}"
+					data-th-text="${cliente.nome}"
+					th:value="${cliente.id}"></option></select>
+					
+		</div>
+
+		<button type="submit" class="btn btn-primary">Cadastrar</button>
+	</form>
+</body>
+</html>

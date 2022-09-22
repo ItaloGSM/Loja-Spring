@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<title>CadastroCliente</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-light">
+		<div class="container-fluid">
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="#">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/produto/create">/CreateProduto</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/endereco/create">/CreateEndereço</a></li>
+					<li class="nav-item"><a class="nav-link" href="/pedido/create">/CreatePedido</a></li>
+					<li class="nav-item"><a class="nav-link" href="/cliente/create">/CreateCliente</a></li>
+					<li class="nav-item"><a class="nav-link" href="/produto/all">/ListProduto</a></li>
+					<li class="nav-item"><a class="nav-link" href="/endereco/all">/ListEndereco</a></li>
+					<li class="nav-item"><a class="nav-link" href="/pedido/all">/ListPedido</a></li>
+					<li class="nav-item"><a class="nav-link" href="/cliente/all">/ListCliente</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<h1>Cadastrar Cliente</h1>
+	<form method="POST" action="/cliente/create">
+		<div class="mb-3">
+			<label class="form-label">Nome</label> <input type="text"
+				class="form-control" name="nome">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Cpf</label> <input type="number"
+				class="form-control" name="cpf">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Rua</label> <input type="text"
+				class="form-control" name="rua">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Numero</label> <input type="number"
+				class="form-control" name="numero">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Bairro</label> <input type="text"
+				class="form-control" name="bairro">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Cidade</label> <input type="text"
+				class="form-control" name="cidade">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Estado</label> <input type="text"
+				class="form-control" name="estado">
+		</div>
+		<button type="submit" class="btn btn-primary">Cadastrar</button>
+	</form>
+</body>
+</html>

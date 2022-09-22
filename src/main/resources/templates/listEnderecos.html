@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<title>ListagemEndereco</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-light">
+		<div class="container-fluid">
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="#">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/produto/create">/CreateProduto</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/endereco/create">/CreateEndereço</a></li>
+					<li class="nav-item"><a class="nav-link" 
+						href="/pedido/create">/CreatePedido</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/cliente/create">/CreateCliente</a></li>
+					<li class="nav-item"><a class="nav-link" href="/produto/all">/ListProduto</a></li>
+					<li class="nav-item"><a class="nav-link" href="/endereco/all">/ListEndereco</a></li>
+					<li class="nav-item"><a class="nav-link" href="/pedido/all">/ListPedido</a></li>
+					<li class="nav-item"><a class="nav-link" href="/cliente/all">/ListCliente</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<h1 style="text-align: center">Endereços</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">Numero</th>
+				<th scope="col">Rua</th>
+				<th scope="col">Bairro</th>
+				<th scope="col">Cidade</th>
+				<th scope="col">Estado</th>
+				<th scope="col"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-th-each="endereco : ${enderecos}">
+				<td data-th-text="${endereco.id}"></td>
+				<td data-th-text="${endereco.numero}"></td>
+				<td data-th-text="${endereco.rua}"></td>
+				<td data-th-text="${endereco.bairro}"></td>
+				<td data-th-text="${endereco.cidade}"></td>
+				<td data-th-text="${endereco.estado}"></td>
+				<td><a th:href="@{'/endereco/delete/'+${endereco.id}}"
+					class="btn btn-primary">Excluir</a> <!-- basicamente oque está dentro de aspas simples é uma string e o que vem depois do + é um atributo,
+            		o padrão @{} é do th:href (thymeleaf)--></td>
+				<td><a th:href="@{'/endereco/edit/'+${endereco.id}}"
+					class="btn btn-primary">Editar</a></td>
+			</tr>
+		</tbody>
+
+	</table>
+</body>
+</html>
